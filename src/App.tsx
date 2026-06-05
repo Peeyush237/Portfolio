@@ -3,6 +3,7 @@ import { useEffect, useState } from 'react';
 import { CustomCursor } from './components/ui/CustomCursor';
 import { SwipeHint } from './components/ui/SwipeHint';
 import { TopNavbar } from './components/ui/TopNavbar';
+import { ChatPage } from './pages/ChatPage';
 import { ContactPage } from './pages/ContactPage';
 import { ExperiencePage } from './pages/ExperiencePage';
 import { HeroPage } from './pages/HeroPage';
@@ -17,6 +18,7 @@ const pageComponents: Record<PageId, () => JSX.Element> = {
   projects: ProjectsPage,
   experience: ExperiencePage,
   leadership: LeadershipPage,
+  chat: ChatPage,
   contact: ContactPage,
 };
 

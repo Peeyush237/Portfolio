@@ -21,3 +21,4 @@ dist/
 
 # temp / junk
 resume_tmp.xml
+.env

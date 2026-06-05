@@ -1,4 +1,11 @@
-export type PageId = 'hero' | 'skills' | 'projects' | 'experience' | 'leadership' | 'contact';
+export type PageId =
+  | 'hero'
+  | 'skills'
+  | 'projects'
+  | 'experience'
+  | 'leadership'
+  | 'chat'
+  | 'contact';
 
 export const PAGE_ORDER: PageId[] = [
   'hero',
@@ -6,5 +13,6 @@ export const PAGE_ORDER: PageId[] = [
   'projects',
   'experience',
   'leadership',
+  'chat',
   'contact',
 ];

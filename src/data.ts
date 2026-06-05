@@ -144,6 +144,7 @@ export const jumpLinks = [
   { label: 'projects', target: 'projects' as const },
   { label: 'experience', target: 'experience' as const },
   { label: 'leadership', target: 'leadership' as const },
+  { label: 'ask me', target: 'chat' as const },
   { label: 'contact', target: 'contact' as const },
 ] as const;
 
