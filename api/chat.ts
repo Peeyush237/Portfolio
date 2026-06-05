@@ -5,10 +5,6 @@ import {
   type ChatMessage,
 } from './lib/chatHandler';
 
-export const config = {
-  maxDuration: 60,
-};
-
 function parseBody(req: VercelRequest): { messages?: ChatMessage[] } {
   const raw = req.body;
 
