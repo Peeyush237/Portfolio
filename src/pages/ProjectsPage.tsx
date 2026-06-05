@@ -45,14 +45,10 @@ export function ProjectsPage() {
           className="grid gap-4 sm:grid-cols-2"
         >
           {shippedThings.map((project, index) => (
-            <motion.a
+            <motion.div
               key={project.title}
-              href={project.href}
-              target={project.href.startsWith('http') ? '_blank' : undefined}
-              rel={project.href.startsWith('http') ? 'noreferrer' : undefined}
               variants={cardVariants}
               transition={{ duration: 0.4, ease: 'easeOut' }}
-              data-cursor-hover
               className="group flex flex-col justify-between rounded-2xl border border-black/[0.08] bg-white p-5 transition-all duration-200 hover:-translate-y-1 hover:shadow-card-hover dark:border-white/[0.08] dark:bg-[#1e1e1e]"
             >
               <div>
@@ -66,15 +62,34 @@ export function ProjectsPage() {
                   {project.desc}
                 </p>
               </div>
-              <div className="mt-4 flex items-center justify-between gap-3">
-                <span className="rounded-full bg-[#F5E6A3] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.08em] text-black">
+              <div className="mt-4 flex flex-col gap-3 sm:flex-row sm:items-center sm:justify-between">
+                <span className="w-fit rounded-full bg-[#F5E6A3] px-3 py-1.5 text-[10px] font-black uppercase tracking-[0.08em] text-black">
                   {project.tech}
                 </span>
-                <span className="text-sm font-black text-gray-500 transition group-hover:text-pink-hot dark:text-gray-400">
-                  view ↗
-                </span>
+                <div className="flex items-center gap-4">
+                  {project.github && (
+                    <a
+                      href={project.github}
+                      target="_blank"
+                      rel="noreferrer"
+                      data-cursor-hover
+                      className="text-sm font-black text-gray-500 transition hover:text-pink-hot dark:text-gray-400"
+                    >
+                      github ↗
+                    </a>
+                  )}
+                  <a
+                    href={project.href}
+                    target={project.href.startsWith('http') ? '_blank' : undefined}
+                    rel={project.href.startsWith('http') ? 'noreferrer' : undefined}
+                    data-cursor-hover
+                    className="text-sm font-black text-gray-500 transition hover:text-pink-hot dark:text-gray-400"
+                  >
+                    {project.github ? 'live ↗' : 'view ↗'}
+                  </a>
+                </div>
               </div>
-            </motion.a>
+            </motion.div>
           ))}
         </motion.div>
       </div>

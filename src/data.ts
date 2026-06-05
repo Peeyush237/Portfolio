@@ -3,7 +3,7 @@ export const profile = {
   title: 'AI/ML Engineer · IIIT Nagpur',
   tagline: 'Pre-final year B.Tech CSE (AI/ML) student building agentic AI, RAG systems, and practical products.',
   about:
-    'I like low-resource NLP, multi-agent workflows, and turning messy workflows into useful systems that feel oddly polished.',
+    'I like working with AI/ML systems, enhancing model performance, and building multi-agent workflows that turn messy ideas into useful, polished products.',
   email: 'peeyush.lyf237@gmail.com',
   phone: '+91 9131248831',
   github: 'https://github.com/Peeyush237',
@@ -11,10 +11,6 @@ export const profile = {
   resume: '/Peeyush_CV15.pdf',
   location: 'Nagpur, India',
 };
-
-export const essentials = ['Python', 'LangChain', 'PyTorch'];
-export const currently = ['Agentic AI', 'RAG systems'];
-export const aesthetic = 'low-resource NLP nerd';
 
 export const skills = {
   languages: ['C', 'C++', 'Python', 'JavaScript'],
@@ -111,30 +107,27 @@ export const shippedThings = [
     desc: 'Multilingual feed, 3-node agent pipeline, live SSE streaming, and deterministic fallbacks.',
     tech: 'FastAPI · LangGraph · Groq',
     href: 'https://et-genai-platform.vercel.app/',
+    github: 'https://github.com/Peeyush237/Intelligent-Newsroom-webapp-GenAI',
   },
   {
     title: 'MCP-Powered Agentic Healthcare Scheduler',
     desc: 'Role-based booking assistant with tool calling, calendar sync, and secure messaging.',
     tech: 'MCP · PostgreSQL · Twilio',
     href: 'https://agentic-appointment-assistant-mcp.vercel.app/',
+    github: 'https://github.com/Peeyush237/Agentic-Appointment-Assistant-MCP',
   },
   {
     title: 'LinguaBridge (Cross-Lingual RAG)',
     desc: 'Odia-to-English retrieval stack with hybrid RAG and translation-backed generation.',
     tech: 'Next.js · FAISS · IndicTrans2',
     href: 'https://rag-for-lrl-using-translation-model.vercel.app/',
+    github: 'https://github.com/Peeyush237/RAG_for_LRL_UsingTranslationModel_HFSpaceInference',
   },
   {
     title: 'AI Engineering Intern @ Ekaant',
     desc: 'Built a LangGraph orchestration layer across six specialized agents for a therapist EHR SaaS.',
     tech: 'LangGraph · LLM APIs',
     href: 'https://www.linkedin.com/company/ekaant/posts/?feedView=all',
-  },
-  {
-    title: 'Tantrafiesta Post-Production',
-    desc: 'Directed high-retention media workflows and polished flagship event content.',
-    tech: 'Premiere Pro · After Effects',
-    href: '#contact',
   },
 ];
 
@@ -147,20 +140,18 @@ export const contactButtons = [
 
 export const jumpLinks = [
   { label: 'about me', target: 'hero' as const },
-  { label: 'starter pack', target: 'starter' as const },
+  { label: 'skills', target: 'skills' as const },
   { label: 'projects', target: 'projects' as const },
   { label: 'experience', target: 'experience' as const },
   { label: 'leadership', target: 'leadership' as const },
   { label: 'contact', target: 'contact' as const },
 ] as const;
 
-export const starterPackRows = [
-  { label: 'ESSENTIALS', value: essentials.join(' · ') },
-  { label: 'CURRENTLY', value: currently.join(' · ') },
-  { label: 'AESTHETIC', value: aesthetic },
-  {
-    label: 'DIGITAL EDGE',
-    value: [...skills.web.slice(0, 3), ...skills.ai.slice(0, 2)].join(' · '),
-  },
-  { label: 'CONTACT', value: `${profile.email}` },
+export const skillRows = [
+  { label: 'LANGUAGES', value: skills.languages.join(' · ') },
+  { label: 'WEB', value: skills.web.join(' · ') },
+  { label: 'DATABASES', value: skills.databases.join(' · ') },
+  { label: 'AI / ML', value: skills.ai.join(' · ') },
+  { label: 'TOOLS', value: skills.tools.join(' · ') },
+  { label: 'OTHERS', value: skills.others.join(' · ') },
 ];

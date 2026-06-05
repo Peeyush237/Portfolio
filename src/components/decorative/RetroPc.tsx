@@ -1,6 +1,6 @@
 import { useEffect, useState } from 'react';
 
-const TYPEWRITER_LINES = ['agentic ai', 'rag systems', 'low-resource nlp'];
+const TYPEWRITER_LINES = ['aiml systems', 'model performance', 'agentic ai'];
 
 export function RetroPc() {
   const [lineIndex, setLineIndex] = useState(0);

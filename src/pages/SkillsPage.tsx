@@ -1,22 +1,22 @@
 import { motion } from 'framer-motion';
 import { PageCard } from '../components/ui/PageCard';
 import { SectionPill } from '../components/ui/SectionPill';
-import { starterPackRows } from '../data';
+import { skillRows } from '../data';
 
-export function StarterPackPage() {
+export function SkillsPage() {
   return (
-    <PageCard pageId="starter">
+    <PageCard pageId="skills">
       <div className="absolute left-8 top-8 md:left-12 md:top-12">
-        <SectionPill>STARTER PACK</SectionPill>
+        <SectionPill>SKILLS</SectionPill>
       </div>
 
       <div className="flex h-full flex-col justify-center gap-8 pt-10 lg:grid lg:grid-cols-2 lg:gap-10 lg:pt-0">
         <div className="rounded-2xl border border-black/[0.08] bg-white p-6 dark:border-white/[0.08] dark:bg-[#1e1e1e]">
           <h2 className="mb-6 text-sm font-black uppercase tracking-[0.15em] text-gray-500 dark:text-gray-400">
-            PERSONALITY BREAKDOWN
+            SKILLS BREAKDOWN
           </h2>
           <div className="space-y-0">
-            {starterPackRows.map((row) => (
+            {skillRows.map((row) => (
               <div
                 key={row.label}
                 className="flex flex-col gap-1 border-b border-black/[0.08] py-4 dark:border-white/[0.08] sm:flex-row sm:gap-4"
@@ -46,11 +46,9 @@ export function StarterPackPage() {
             <p className="text-[10px] font-black uppercase tracking-[0.12em] text-black/40">
               PINNED NOTE
             </p>
-            <h3 className="mt-2 text-xl font-black tracking-[-0.03em] text-black">
-              personality breakdown
-            </h3>
+            <h3 className="mt-2 text-xl font-black tracking-[-0.03em] text-black">skills stack</h3>
             <ul className="mt-3 space-y-2 text-xs leading-relaxed text-black/75">
-              {starterPackRows.slice(0, 3).map((row) => (
+              {skillRows.slice(0, 4).map((row) => (
                 <li key={row.label}>
                   <span className="font-black">{row.label}:</span> {row.value}
                 </li>

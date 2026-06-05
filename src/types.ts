@@ -1,8 +1,8 @@
-export type PageId = 'hero' | 'starter' | 'projects' | 'experience' | 'leadership' | 'contact';
+export type PageId = 'hero' | 'skills' | 'projects' | 'experience' | 'leadership' | 'contact';
 
 export const PAGE_ORDER: PageId[] = [
   'hero',
-  'starter',
+  'skills',
   'projects',
   'experience',
   'leadership',

@@ -8,12 +8,12 @@ import { ExperiencePage } from './pages/ExperiencePage';
 import { HeroPage } from './pages/HeroPage';
 import { LeadershipPage } from './pages/LeadershipPage';
 import { ProjectsPage } from './pages/ProjectsPage';
-import { StarterPackPage } from './pages/StarterPackPage';
+import { SkillsPage } from './pages/SkillsPage';
 import { PAGE_ORDER, type PageId } from './types';
 
 const pageComponents: Record<PageId, () => JSX.Element> = {
   hero: HeroPage,
-  starter: StarterPackPage,
+  skills: SkillsPage,
   projects: ProjectsPage,
   experience: ExperiencePage,
   leadership: LeadershipPage,
