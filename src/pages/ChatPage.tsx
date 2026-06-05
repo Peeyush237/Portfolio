@@ -72,11 +72,7 @@ export function ChatPage() {
             setMessages((prev) =>
               prev.map((item) =>
                 item.id === assistantMessage.id && !item.content
-                  ? {
-                      ...item,
-                      content:
-                        'Sorry, I could not reach the assistant right now. Please try again in a moment.',
-                    }
+                  ? { ...item, content: message }
                   : item,
               ),
             );

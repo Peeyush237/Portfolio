@@ -1,33 +1,13 @@
-import { readFileSync } from 'node:fs';
-import { join } from 'node:path';
-
-function loadPersonaDocument(): string {
-  const candidates = [
-    join(process.cwd(), 'peeyush_persona.md'),
-    join(process.cwd(), '..', 'peeyush_persona.md'),
-  ];
-
-  for (const path of candidates) {
-    try {
-      return readFileSync(path, 'utf-8');
-    } catch {
-      continue;
-    }
-  }
-
-  throw new Error('peeyush_persona.md not found');
-}
+import { PERSONA_DOCUMENT } from './personaContent';
 
 export function buildSystemPrompt(): string {
-  const persona = loadPersonaDocument();
-
   return `You are the portfolio assistant for Peeyush Mishra — a friendly, professional AI embedded in his personal portfolio website. Recruiters, hiring managers, and collaborators use you to learn about him.
 
 ## Your knowledge base
 The following document is your primary source of truth about Peeyush. Base your answers on it. You may supplement with general world knowledge when it helps explain concepts (e.g. what LangGraph is, what RAG means) — but never invent facts about Peeyush that are not supported by this document or reasonable inference from it.
 
 ---
-${persona}
+${PERSONA_DOCUMENT}
 ---
 
 ## Response rules (strict)

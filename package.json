@@ -4,7 +4,10 @@
   "version": "0.0.0",
   "type": "module",
   "scripts": {
+    "embed-persona": "node scripts/embed-persona.mjs",
+    "predev": "npm run embed-persona",
     "dev": "vite",
+    "prebuild": "npm run embed-persona",
     "build": "tsc -b && vite build",
     "preview": "vite preview"
   },

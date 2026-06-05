@@ -5,6 +5,26 @@ import {
   type ChatMessage,
 } from './lib/chatHandler';
 
+export const config = {
+  maxDuration: 60,
+};
+
+function parseBody(req: VercelRequest): { messages?: ChatMessage[] } {
+  const raw = req.body;
+
+  if (raw == null) return {};
+
+  if (typeof raw === 'string') {
+    try {
+      return JSON.parse(raw) as { messages?: ChatMessage[] };
+    } catch {
+      return {};
+    }
+  }
+
+  return raw as { messages?: ChatMessage[] };
+}
+
 export default async function handler(req: VercelRequest, res: VercelResponse) {
   if (req.method === 'OPTIONS') {
     res.setHeader('Access-Control-Allow-Origin', '*');
@@ -17,8 +37,8 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
     return res.status(405).json({ error: 'Method not allowed' });
   }
 
-  const body = req.body as { messages?: ChatMessage[] };
-  const messages = body?.messages;
+  const body = parseBody(req);
+  const messages = body.messages;
 
   if (!Array.isArray(messages) || messages.length === 0) {
     return res.status(400).json({ error: 'messages array is required' });
@@ -38,14 +58,17 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
   res.setHeader('Content-Type', 'text/event-stream; charset=utf-8');
   res.setHeader('Cache-Control', 'no-cache, no-transform');
   res.setHeader('Connection', 'keep-alive');
+  res.setHeader('X-Accel-Buffering', 'no');
   res.setHeader('Access-Control-Allow-Origin', '*');
+
+  const write = (chunk: string) => res.write(chunk);
 
   try {
     await streamChatCompletion(validMessages, (text) => {
-      writeSseChunk((chunk) => res.write(chunk), { content: text });
+      writeSseChunk(write, { content: text });
     });
 
-    writeSseChunk((chunk) => res.write(chunk), { done: true });
+    writeSseChunk(write, { done: true });
     res.end();
   } catch (error) {
     const message =
@@ -55,7 +78,7 @@ export default async function handler(req: VercelRequest, res: VercelResponse) {
       return res.status(500).json({ error: message });
     }
 
-    writeSseChunk((chunk) => res.write(chunk), { error: message });
+    writeSseChunk(write, { error: message });
     res.end();
   }
 }

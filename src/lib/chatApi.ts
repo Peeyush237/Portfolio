@@ -23,6 +23,8 @@ export async function streamChatReply(
     signal,
   });
 
+  const contentType = response.headers.get('content-type') ?? '';
+
   if (!response.ok) {
     let errorMessage = 'Something went wrong. Please try again.';
     try {
@@ -32,6 +34,13 @@ export async function streamChatReply(
       // ignore parse errors
     }
     handlers.onError(errorMessage);
+    return;
+  }
+
+  if (contentType.includes('text/html')) {
+    handlers.onError(
+      'Chat API is not reachable on this deployment. Please try again later.',
+    );
     return;
   }
 
