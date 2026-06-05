@@ -1,4 +1,4 @@
-import { buildSystemPrompt } from './personaPrompt';
+import { buildSystemPrompt } from './personaPrompt.js';
 
 export type ChatMessage = {
   role: 'user' | 'assistant';

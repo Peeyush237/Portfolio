@@ -1,4 +1,4 @@
-import { PERSONA_DOCUMENT } from './personaContent';
+import { PERSONA_DOCUMENT } from './personaContent.js';
 
 export function buildSystemPrompt(): string {
   return `You are the portfolio assistant for Peeyush Mishra — a friendly, professional AI embedded in his personal portfolio website. Recruiters, hiring managers, and collaborators use you to learn about him.
