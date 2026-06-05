@@ -16,6 +16,10 @@ dist/
 # typescript cache
 *.tsbuildinfo
 
+# tsc must not emit into api/ (conflicts with Vercel serverless handlers)
+api/**/*.js
+api/**/*.d.ts
+
 # vercel
 .vercel
 
