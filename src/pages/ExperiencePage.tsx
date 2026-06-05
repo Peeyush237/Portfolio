@@ -1,3 +1,4 @@
+import { motion } from 'framer-motion';
 import { PageCard } from '../components/ui/PageCard';
 import { SectionPill } from '../components/ui/SectionPill';
 import { certifications, education, experience } from '../data';
@@ -16,12 +17,23 @@ export function ExperiencePage() {
       </div>
 
       <div className="flex h-full flex-col justify-center gap-8 pt-14 lg:grid lg:grid-cols-2 lg:gap-10 lg:pt-10">
-        <div className="space-y-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5 }}
+          className="space-y-4"
+        >
           <h3 className="text-lg font-black uppercase tracking-[0.1em] text-gray-500 dark:text-gray-400">
             Work Experience
           </h3>
-          {experience.map((item) => (
-            <div key={item.role} className={innerCard}>
+          {experience.map((item, index) => (
+            <motion.div
+              key={item.role}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: index * 0.1 }}
+              className={innerCard}
+            >
               {item.link ? (
                 <a
                   href={item.link}
@@ -46,11 +58,17 @@ export function ExperiencePage() {
                   <li key={bullet}>• {bullet}</li>
                 ))}
               </ul>
-            </div>
+            </motion.div>
           ))}
 
-          {education.map((item) => (
-            <div key={item.school} className={innerCard}>
+          {education.map((item, index) => (
+            <motion.div
+              key={item.school}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: (experience.length + index) * 0.1 }}
+              className={innerCard}
+            >
               <p className="text-lg font-black text-pink-hot">{item.school}</p>
               <p className="mt-1 text-sm font-medium text-gray-800 dark:text-gray-200">
                 {item.degree}
@@ -58,16 +76,27 @@ export function ExperiencePage() {
               <p className="mt-2 text-xs text-gray-500 dark:text-gray-400">
                 {item.duration} · {item.location}
               </p>
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
 
-        <div className="space-y-4">
+        <motion.div
+          initial={{ opacity: 0 }}
+          animate={{ opacity: 1 }}
+          transition={{ duration: 0.5, delay: 0.3 }}
+          className="space-y-4"
+        >
           <h3 className="text-lg font-black uppercase tracking-[0.1em] text-gray-500 dark:text-gray-400">
             Certifications
           </h3>
-          {workCerts.map((item) => (
-            <div key={item.title} className={innerCard}>
+          {workCerts.map((item, index) => (
+            <motion.div
+              key={item.title}
+              initial={{ y: 20, opacity: 0 }}
+              animate={{ y: 0, opacity: 1 }}
+              transition={{ duration: 0.4, delay: 0.4 + index * 0.1 }}
+              className={innerCard}
+            >
               <p className="text-sm font-black uppercase tracking-[0.08em] text-gray-900 dark:text-white">
                 {item.title}
               </p>
@@ -85,9 +114,9 @@ export function ExperiencePage() {
                   VIEW ↗
                 </a>
               )}
-            </div>
+            </motion.div>
           ))}
-        </div>
+        </motion.div>
       </div>
     </PageCard>
   );

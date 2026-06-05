@@ -60,7 +60,7 @@ export function TopNavbar({
             type="button"
             onClick={onToggleTheme}
             data-cursor-hover
-            className="hidden shrink-0 rounded-full bg-black px-3.5 py-1.5 text-[11px] font-black uppercase tracking-[0.08em] text-white ring-1 ring-white/20 transition hover:scale-105 sm:inline-block"
+            className="hidden shrink-0 rounded-full bg-black px-4 py-2.5 text-[11px] font-black uppercase tracking-[0.08em] text-white ring-1 ring-white/20 transition hover:scale-105 sm:inline-block min-h-[44px]"
           >
             {darkMode ? 'light mode' : 'dark mode'}
           </button>
@@ -69,7 +69,7 @@ export function TopNavbar({
             type="button"
             onClick={() => setMenuOpen((open) => !open)}
             data-cursor-hover
-            className="flex h-9 w-9 flex-col items-center justify-center gap-1 rounded-full bg-[#F5E6A3] lg:hidden"
+            className="flex h-11 w-11 flex-col items-center justify-center gap-1 rounded-full bg-[#F5E6A3] lg:hidden"
             aria-label="Toggle menu"
           >
             <span className={`block h-0.5 w-4 bg-black transition ${menuOpen ? 'translate-y-1.5 rotate-45' : ''}`} />
@@ -139,7 +139,7 @@ function NavPillButton({
       type="button"
       onClick={onClick}
       data-cursor-hover
-      className={`group relative ${fullWidth ? 'w-full' : ''}`}
+      className={`group relative ${fullWidth ? 'w-full' : ''} min-h-[44px]`}
     >
       {isActive && (
         <motion.span
@@ -159,7 +159,7 @@ function NavPillButton({
             ? { duration: 1.5, repeat: Infinity, ease: 'easeInOut' }
             : { duration: 0.2 }
         }
-        className={`relative block rounded-full px-3.5 py-1.5 text-center text-[11px] font-black uppercase tracking-[0.08em] text-black ${
+        className={`relative block rounded-full px-4 py-2.5 text-center text-[11px] font-black uppercase tracking-[0.08em] text-black ${
           isActive ? 'scale-105 bg-[#e8d57a]' : 'bg-[#F5E6A3]'
         } ${fullWidth ? 'w-full' : ''}`}
       >
@@ -177,7 +177,7 @@ function PageDots({
   onNavigate: (page: PageId) => void;
 }) {
   return (
-    <div className="flex h-5 items-center justify-center gap-2 bg-black/60 backdrop-blur-[8px]">
+    <div className="flex h-6 items-center justify-center gap-2 bg-black/60 backdrop-blur-[8px]">
       {PAGE_ORDER.map((page) => {
         const isActive = activePage === page;
         return (
@@ -186,7 +186,7 @@ function PageDots({
             type="button"
             onClick={() => onNavigate(page)}
             data-cursor-hover
-            className="flex h-4 w-4 items-center justify-center"
+            className="flex h-11 w-11 items-center justify-center"
             aria-label={page}
           >
             {isActive ? (

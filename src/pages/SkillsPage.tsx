@@ -24,7 +24,7 @@ export function SkillsPage() {
                 <span className="min-w-[140px] font-mono text-[11px] font-bold uppercase tracking-[0.1em] text-gray-500 dark:text-gray-400">
                   {row.label}
                 </span>
-                <span className="text-sm font-medium text-gray-800 dark:text-gray-200">
+                <span className="text-sm font-medium text-gray-800 transition-colors duration-200 hover:text-pink-hot dark:text-gray-200 dark:hover:text-pink-hot cursor-default">
                   {row.value}
                 </span>
               </div>

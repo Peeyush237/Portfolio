@@ -32,9 +32,11 @@ export function ContactPage() {
 
         <div className="w-full max-w-md rounded-2xl border border-black/[0.08] bg-white/90 p-6 text-left backdrop-blur-sm dark:border-white/[0.08] dark:bg-[#1e1e1e]/95">
           <div className="mb-5 flex items-center gap-4">
-            <div className="flex h-16 w-16 shrink-0 items-center justify-center rounded-full bg-gradient-to-br from-pink-hot to-[#F5E6A3] text-xl font-black text-white">
-              PM
-            </div>
+            <img
+              src="/IMG_5148.JPG"
+              alt={profile.name}
+              className="h-16 w-16 shrink-0 rounded-full object-cover"
+            />
             <div>
               <p className="text-lg font-black text-gray-900 dark:text-white">{profile.name}</p>
               <p className="text-xs text-gray-500 dark:text-gray-400">{profile.title}</p>
@@ -74,9 +76,20 @@ export function ContactPage() {
           ))}
         </div>
 
-        <p className="text-xs text-gray-500 dark:text-gray-400">
-          {profile.email} · {profile.location}
-        </p>
+        <div className="flex flex-col items-center gap-2">
+          <a
+            href={`https://mail.google.com/mail/?view=cm&fs=1&to=${profile.email}`}
+            target="_blank"
+            rel="noreferrer"
+            data-cursor-hover
+            className="text-sm font-black text-pink-hot transition hover:scale-105 hover:text-pink-hot/80"
+          >
+            {profile.email}
+          </a>
+          <p className="text-xs text-gray-500 dark:text-gray-400">
+            {profile.location}
+          </p>
+        </div>
       </div>
     </PageCard>
   );
