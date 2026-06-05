@@ -1,0 +1,86 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+:root {
+  --shell: #f5f3ee;
+  --card: #ffffff;
+  --card-border: rgba(0, 0, 0, 0.08);
+  --text: #0a0a0a;
+  --text-muted: rgba(0, 0, 0, 0.55);
+  --yellow: #f5e6a3;
+  --yellow-active: #e8d88e;
+  --pink: #ff3cac;
+}
+
+html.dark {
+  --shell: #0a0a0a;
+  --card: #1a1a1a;
+  --card-border: rgba(255, 255, 255, 0.08);
+  --text: #ffffff;
+  --text-muted: rgba(255, 255, 255, 0.55);
+}
+
+html {
+  scroll-behavior: auto;
+}
+
+body {
+  margin: 0;
+  background: var(--shell);
+  color: var(--text);
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 500;
+  line-height: 1.6;
+  overflow: hidden;
+  cursor: none;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+a,
+button {
+  cursor: none;
+}
+
+@media (pointer: coarse) {
+  body,
+  a,
+  button {
+    cursor: auto;
+  }
+}
+
+.font-display {
+  font-family: 'Space Grotesk', ui-sans-serif, system-ui, sans-serif;
+  font-weight: 900;
+}
+
+@keyframes gradient-blob {
+  0%,
+  100% {
+    transform: translate(-50%, -50%) scale(1);
+    filter: hue-rotate(0deg) blur(80px);
+  }
+  50% {
+    transform: translate(-50%, -50%) scale(1.15);
+    filter: hue-rotate(45deg) blur(90px);
+  }
+}
+
+.gradient-blob {
+  animation: gradient-blob 14s ease-in-out infinite;
+}
+
+.corkboard {
+  background-color: #c8a96e;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.12) 1px, transparent 1px);
+  background-size: 12px 12px;
+}
+
+html.dark .corkboard {
+  background-color: #8b7355;
+  background-image: radial-gradient(circle, rgba(0, 0, 0, 0.2) 1px, transparent 1px);
+}
