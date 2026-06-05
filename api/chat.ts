@@ -3,7 +3,7 @@ import {
   streamChatCompletion,
   writeSseChunk,
   type ChatMessage,
-} from './lib/chatHandler';
+} from './lib/chatHandler.js';
 
 function parseBody(req: VercelRequest): { messages?: ChatMessage[] } {
   const raw = req.body;
